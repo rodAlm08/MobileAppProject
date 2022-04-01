@@ -9,9 +9,10 @@
 </ion-header>
 
 <ion-content>
-
 <ion-card *ngFor="let y of cooking">
-  <ion-label>{{y.display}}</ion-label>
+
+  <img src="{{y.display.images}}">
+  <ion-label>{{y.display.displayName}}</ion-label>
 </ion-card>
 
 </ion-content>
