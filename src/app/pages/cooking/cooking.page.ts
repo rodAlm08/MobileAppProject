@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Services/service.service';
-import {Storage} from '@ionic/storage-angular';
-import { DisplayPage } from 'src/app/display/display.page';
-import { DisplayPageModule } from 'src/app/display/display.module';
+
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
+
 
 @Component({
   selector: 'app-cooking',
@@ -14,10 +17,14 @@ export class CookingPage implements OnInit {
   cooking:any[]=[];
   recipe:any;
 
-  constructor(private getDataService:ServiceService, private NavCtrl:NavController) { }
+  constructor(private getDataService:ServiceService, 
+    private NavCtrl:NavController, 
+    private router:Router,
+    private iab: InAppBrowser
+    ) { }
 
   ngOnInit() {
-    this.getDataService.getData().subscribe(
+    this.getDataService.getCookingData().subscribe(
       (data)=>{
         this.cooking = data.feed;
         console.log(this.cooking);
@@ -25,17 +32,47 @@ export class CookingPage implements OnInit {
     );
   }
 
+  openPage(){
+    this.iab.create('https://stackoverflow.com/'); // --> Change URL here
+}
+
+
+  openRecipe2(recipeLoad:any){
+    console.log(recipeLoad);
+    //this.NavCtrl.navigateForward('/display', {state:recipeLoad});
+    this.iab.create(recipeLoad);
+  }
+
+
+  open(){
+    console.log("open recipe method");
+   // this.router.navigate(['display']);
+    //this.router.navigateByUrl('display');
+    this.getDataService.getCookingData().subscribe(
+      (recipe)=>{
+          this.recipe = recipe;//url loaded
+          //this.router.navigate(['display', {recipe:recipes}]);
+           //this.router.navigateByUrl('display');
+          this.NavCtrl.navigateForward(['display',{recipe:recipe}]);
+          console.log("loaded");
+      }
+    );
+    //this.NavCtrl.navigateForward('display');
+      
+  }
+
   openRecipe(){
-    console.log("open recipe");
-    this.getDataService.getData().subscribe(
+    console.log("open recipe method");
+    this.router.navigate(['display']);
+
+    this.getDataService.getCookingData().subscribe(
       (recipes)=>{
-        this.recipe = recipes.feed.display.source.sourceRecipeUrl;//url loaded
-        
-        
-        this.NavCtrl.navigateForward(['display', {url: this.recipe}]);
-        console.log(this.recipe);
+          this.recipe = recipes;//url loaded
+          //this.router.navigate(['display', {recipe:recipes}]);
+           this.router.navigateByUrl('display');
+          this.NavCtrl.navigateForward(['display',{recipe:recipes}]);
+          console.log("loaded");
       }
     );
   }
-
 }

@@ -1,7 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar >
     
-    <ion-title>Exercises</ion-title>
+    <ion-title color="success" class="exercise-Title">Exercises</ion-title>
+    
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -10,4 +11,20 @@
 
 <ion-content>
 
+  <ion-card *ngFor="let y of exercise">
+
+    <ion-card-header>
+      <ion-card-subtitle color="warning" class="exercise-Title">{{y.name}}</ion-card-subtitle>
+      <ion-card-title class="exercise-subTitle">Body part: {{y.bodyPart}}</ion-card-title>
+      <ion-card-title class="exercise-subTitle">Equipment: {{y.equipment}}</ion-card-title>
+      <ion-card-title class="exercise-subTitle">Target: {{y.target}}</ion-card-title>
+
+    </ion-card-header>
+  
+    <img src="{{y.gifUrl}}" >
+  
+  
+  </ion-card>
+  
 </ion-content>
+  

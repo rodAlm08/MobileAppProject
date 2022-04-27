@@ -10,7 +10,7 @@
 
 <ion-content>
 <ion-card *ngFor="let y of cooking">
-  <img (click)="openRecipe()" src="{{y.display.images}}" >
+  <img (click)="openRecipe2(y.display.source.sourceRecipeUrl)" src="{{y.display.images}}" >
   <ion-label>{{y.display.displayName}}</ion-label>
 </ion-card>
 
