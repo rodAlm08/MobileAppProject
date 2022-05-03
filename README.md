@@ -4,7 +4,7 @@
 modules I expect the app to open in the browser.
 • The App should use:
 1. the built-in Data Binding properties – e.g. interpolation, two-way data binding.
-  - I used it on the  and 
+  - I used it on [cooking.page](https://github.com/rodAlm08/MobileAppProject/tree/main/src/app/pages/cooking) and [exercise.page] (https://github.com/rodAlm08/MobileAppProject/tree/main/src/app/pages/exercise)
 2. navigation - At some point your app must navigate between at least 4 pages.
   - 
 
