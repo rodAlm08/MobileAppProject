@@ -14,6 +14,7 @@ modules I expect the app to open in the browser.
     -  Used service to open API for exercises page and cooking recipes
 5. Data Persistence.
     - Used in the home page where the user can set their mood and it will be saved. When the page is reloaded the saved information will be loaded. 
+    
 • The App must be structured in standard, organised and consistent fashion.
 
 • There must be a comment for each non-obvious line of code you add to the project.
