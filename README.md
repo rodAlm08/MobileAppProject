@@ -1,4 +1,4 @@
-"# MobileAppProject" 
+"MobileAppProject - G00377123" 
 echo "# MobileAppProject" >> README.md
 git init
 git add README.md
