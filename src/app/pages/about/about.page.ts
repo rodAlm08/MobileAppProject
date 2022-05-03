@@ -12,6 +12,7 @@ export class AboutPage implements OnInit {
     subtitle: 'Body & Mind App!',
     content: "Body & Mind App was developed aiming your whole wellbeing!",
     content2: "Here you'll find Easy to cook recipes, Exercises to keep your body healthy and fit and Wellbeing resources if you ever strugle!",
+    content3: "Thanks for being here.\n The Developers Team.",
     image: 'assets/logo.png'
   };
 

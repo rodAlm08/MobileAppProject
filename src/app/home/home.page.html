@@ -7,6 +7,39 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-img width="80" height="80" src="assets/logo.png"></ion-img>
+<ion-content >
+
+  
+  <ion-list class="bg-transparent">
+    <ion-radio-group [(ngModel)]="myStatus">
+      <ion-list-header>
+        <ion-label class="textSize" >Today I am {{myStatus}}</ion-label>
+      </ion-list-header>
+  
+      <ion-item color="none" lines="none">
+        <ion-label>Happy</ion-label>
+        <ion-radio slot="start" value="Happy"></ion-radio>
+      </ion-item>
+  
+      <ion-item color="none" lines="none">
+        <ion-label>Sad</ion-label>
+        <ion-radio slot="start" value="Sad"></ion-radio>
+      </ion-item>
+  
+      <ion-item color="none" lines="none">
+        <ion-label>Energetic</ion-label>
+        <ion-radio slot="start" value="Energetic"></ion-radio>
+      </ion-item>
+
+      <ion-item color="none" lines="none">
+        <ion-label>Lazy</ion-label>
+        <ion-radio slot="start" value="Lazy"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    
+    <ion-button expand="block" (click)="saveStatus()">Save how I am feeling</ion-button>
+  </ion-list>
+
+  
 </ion-content>

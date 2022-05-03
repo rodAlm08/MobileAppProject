@@ -32,11 +32,6 @@ export class CookingPage implements OnInit {
     );
   }
 
-  openPage(){
-    this.iab.create('https://stackoverflow.com/'); // --> Change URL here
-}
-
-
   openRecipe2(recipeLoad:any){
     console.log(recipeLoad);
     //this.NavCtrl.navigateForward('/display', {state:recipeLoad});
@@ -44,35 +39,4 @@ export class CookingPage implements OnInit {
   }
 
 
-  open(){
-    console.log("open recipe method");
-   // this.router.navigate(['display']);
-    //this.router.navigateByUrl('display');
-    this.getDataService.getCookingData().subscribe(
-      (recipe)=>{
-          this.recipe = recipe;//url loaded
-          //this.router.navigate(['display', {recipe:recipes}]);
-           //this.router.navigateByUrl('display');
-          this.NavCtrl.navigateForward(['display',{recipe:recipe}]);
-          console.log("loaded");
-      }
-    );
-    //this.NavCtrl.navigateForward('display');
-      
-  }
-
-  openRecipe(){
-    console.log("open recipe method");
-    this.router.navigate(['display']);
-
-    this.getDataService.getCookingData().subscribe(
-      (recipes)=>{
-          this.recipe = recipes;//url loaded
-          //this.router.navigate(['display', {recipe:recipes}]);
-           this.router.navigateByUrl('display');
-          this.NavCtrl.navigateForward(['display',{recipe:recipes}]);
-          console.log("loaded");
-      }
-    );
-  }
 }
