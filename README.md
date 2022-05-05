@@ -1,4 +1,4 @@
-"MobileAppProject - G00377123" 
+"MobileAppProject - G00377123 - Rodrigo Almeida" 
 
 • The App must run - When the ionic serve command is issued, after cloning and installing
 modules I expect the app to open in the browser.
